@@ -78,25 +78,31 @@ async function connectToDB() {
 
      //  ----- find zipcode of city corona code ended -----
 
-      const query = { state: 'CA' };
-     await db.collection("uscensus").findOne(query, function(err,result){
-        if (err) throw err;
-        console.log(result.income)
-    })
-//     var mysort= {name:1}
-//     await db.collection("customers").find.sort(mysort).toArray(function(err,result){
-//        if (err) throw err;
-//        console.log(result)
-//    })
+      //  ----- find income of state CA code started -----
+
+    //   const query = ({ state: 'CA' }, { city: 1, income: 1 });
+    //  await db.collection("uscensus").findOne(query, function(err,result){
+    //     if (err) throw err;
+    //     console.log(result.income)
+    // })
+
+ //  ----- find income of state CA code ended -----
+
+
+ var mysort = { state: 1 };
+ await db.collection("uscensus").find().sort(mysort).toArray(function(err, result) {
+     if (err) throw err;
+     console.log(result);
+ });
         // var myquery= {address:"Mountain 21"}
         // await db.collection("customers").deleteOne(myquery, function(err,obj){
         // if (err) throw err;
         // console.log("1 document deleted")
         // })
 
-        // var myquery= {address:"Valley 345"}
-        // var newvalues = { $set:{name:"Mickey",address:"Canyon 123"}}
-        // await db.collection("customers").updateOne(myquery, newvalues, function(err,obj){
+        // var myquery= {state:"Ak"}
+        // var newvalues = { $set:{income:"38910",age:"46"}}
+        // await db.collection("uscensus").updateMany(myquery, newvalues, function(err,obj){
         // if (err) throw err;
         // console.log("1 document updated")
         // })
