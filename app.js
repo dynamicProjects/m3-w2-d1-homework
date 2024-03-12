@@ -68,10 +68,20 @@ async function connectToDB() {
     //     })
      //  ----- insert query ended -----
 
-     const query = { city: 'Corona', state: 'NY' };
+       //  ----- find zipcode of city corona code started -----
+
+    //  const query = { city: 'Corona', state: 'NY' };
+    //  await db.collection("uscensus").findOne(query, function(err,result){
+    //     if (err) throw err;
+    //     console.log(result.zipcode)
+    // })
+
+     //  ----- find zipcode of city corona code ended -----
+
+      const query = { state: 'CA' };
      await db.collection("uscensus").findOne(query, function(err,result){
         if (err) throw err;
-        console.log(result.zipcode)
+        console.log(result.income)
     })
 //     var mysort= {name:1}
 //     await db.collection("customers").find.sort(mysort).toArray(function(err,result){
