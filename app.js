@@ -88,17 +88,13 @@ async function connectToDB() {
 
  //  ----- find income of state CA code ended -----
 
-
+//  ----- sort state  started -----
  var mysort = { state: 1 };
  await db.collection("uscensus").find().sort(mysort).toArray(function(err, result) {
      if (err) throw err;
      console.log(result);
  });
-        // var myquery= {address:"Mountain 21"}
-        // await db.collection("customers").deleteOne(myquery, function(err,obj){
-        // if (err) throw err;
-        // console.log("1 document deleted")
-        // })
+ //  ----- sort state  ended -----
 
         // var myquery= {state:"Ak"}
         // var newvalues = { $set:{income:"38910",age:"46"}}
