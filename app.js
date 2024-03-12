@@ -67,16 +67,12 @@ async function connectToDB() {
     //         console.log("Number of document inserted: " + res.insertedCount)
     //     })
      //  ----- insert query ended -----
-     
-    // await db.collection("customers").findOne({}, function(err,result){
-    //     if (err) throw err;
-    //     console.log(result.name)
-    // })
-    //     var query= {address:"Park Lane 38"}
-    //  await db.collection("customers").find(query).toArray(function(err,result){
-    //     if (err) throw err;
-    //     console.log(result.name)
-    // })
+
+     const query = { city: 'Corona', state: 'NY' };
+     await db.collection("uscensus").findOne(query, function(err,result){
+        if (err) throw err;
+        console.log(result.zipcode)
+    })
 //     var mysort= {name:1}
 //     await db.collection("customers").find.sort(mysort).toArray(function(err,result){
 //        if (err) throw err;
